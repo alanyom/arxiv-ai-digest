@@ -43,76 +43,26 @@
     gap: 1rem;
     flex-wrap: wrap;
   }
-  .wordmark {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.8rem;
-    letter-spacing: -0.5px;
-    color: var(--text);
-  }
+  .wordmark { font-family: 'DM Serif Display', serif; font-size: 1.8rem; letter-spacing: -0.5px; }
   .wordmark em { font-style: italic; color: var(--accent); }
-  .tagline {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    color: var(--muted);
-    letter-spacing: 0.05em;
-    margin-left: auto;
-  }
+  .tagline { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--muted); letter-spacing: 0.05em; margin-left: auto; }
   main { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
   section { margin-bottom: 4rem; }
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--border);
-  }
+  .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
   .section-title { font-family: 'DM Serif Display', serif; font-size: 1.3rem; font-weight: 400; }
-  .section-count {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--muted);
-    background: var(--surface2);
-    padding: 0.2rem 0.5rem;
-    border-radius: 3px;
-  }
+  .section-count { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--muted); background: var(--surface2); padding: 0.2rem 0.5rem; border-radius: 3px; }
   .updated { margin-left: auto; font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--muted); }
   .card-grid { display: flex; flex-direction: column; gap: 1px; }
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1.4rem 1.6rem;
-    transition: border-color 0.15s, background 0.15s;
-    position: relative;
-  }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1.4rem 1.6rem; transition: border-color 0.15s, background 0.15s; position: relative; }
   .card:hover { border-color: #3a3a3a; background: var(--surface2); }
-  .card::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 3px;
-    border-radius: 4px 0 0 4px;
-    background: var(--accent);
-    opacity: 0;
-    transition: opacity 0.15s;
-  }
+  .card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; border-radius: 4px 0 0 4px; background: var(--accent); opacity: 0; transition: opacity 0.15s; }
   .card:hover::before { opacity: 1; }
   .essential-card::before { background: var(--accent2); }
   .card-meta { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; flex-wrap: wrap; }
-  .badge {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.62rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    padding: 0.15rem 0.5rem;
-    border-radius: 2px;
-    background: var(--accent);
-    color: #0d0d0d;
-  }
+  .badge { font-family: 'DM Mono', monospace; font-size: 0.62rem; font-weight: 500; letter-spacing: 0.1em; padding: 0.15rem 0.5rem; border-radius: 2px; background: var(--accent); color: #0d0d0d; }
   .badge-classic { background: var(--accent2); }
   .date { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--muted); }
-  .score-pill { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--muted); margin-left: auto; }
+  .score-pill { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--accent); margin-left: auto; }
   .card h3 { font-family: 'DM Serif Display', serif; font-size: 1.05rem; font-weight: 400; line-height: 1.35; margin-bottom: 0.5rem; }
   .card h3 a { color: var(--text); text-decoration: none; transition: color 0.1s; }
   .card h3 a:hover { color: var(--accent); }
@@ -122,106 +72,178 @@
   .card-links a { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--accent); text-decoration: none; transition: opacity 0.1s; }
   .card-links a:hover { opacity: 0.7; }
   .essential-card .card-links a { color: var(--accent2); }
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 2rem 1.5rem;
-    max-width: 900px;
-    margin: 0 auto;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.68rem;
-    color: var(--muted);
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  @media (max-width: 600px) {
-    .wordmark { font-size: 1.4rem; }
-    .card { padding: 1.1rem; }
-    .tagline { display: none; }
-  }
+  footer { border-top: 1px solid var(--border); padding: 2rem 1.5rem; max-width: 900px; margin: 0 auto; font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--muted); display: flex; gap: 1rem; flex-wrap: wrap; }
+  @media (max-width: 600px) { .wordmark { font-size: 1.4rem; } .card { padding: 1.1rem; } .tagline { display: none; } }
 </style>
 </head>
 <body>
-
 <header>
   <div class="header-inner">
     <div class="wordmark"><em>arxiv</em> digest</div>
     <div class="tagline">AI research · curated daily</div>
   </div>
 </header>
-
 <main>
   <section id="recent">
     <div class="section-header">
       <h2 class="section-title">Today's picks</h2>
-      <span class="section-count">8 papers</span>
-      <span class="updated">updated 2026-03-24 06:00 UTC</span>
+      <span class="section-count">10 papers</span>
+      <span class="updated">updated 2026-03-24 21:18 UTC</span>
     </div>
     <div class="card-grid">
 
-      <article class="card">
-        <div class="card-meta">
-          <span class="badge">NEW</span>
-          <span class="date">2026-03-23</span>
-          <span class="score-pill">interest 9/10</span>
-        </div>
-        <h3><a href="#" target="_blank">Scaling Laws for Reward Model Overoptimization in RLHF</a></h3>
-        <p class="tldr">Derives empirical scaling laws showing how reward hacking grows predictably with KL divergence, giving practitioners a principled way to set RL training budgets.</p>
-        <p class="authors">Park, J., Chen, L., Anthropic Research et al.</p>
-        <div class="card-links"><a href="#">Abstract ↗</a><a href="#">PDF ↗</a></div>
-      </article>
-
-      <article class="card">
-        <div class="card-meta">
-          <span class="badge">NEW</span>
-          <span class="date">2026-03-23</span>
-          <span class="score-pill">interest 8/10</span>
-        </div>
-        <h3><a href="#" target="_blank">MegaScale-Infer: Serving Mixture-of-Experts at 10k GPU Scale</a></h3>
-        <p class="tldr">Introduces disaggregated prefill/decode scheduling and expert-affinity routing that cuts MoE inference cost by 40% at production scale.</p>
-        <p class="authors">Zhang, W., Liu, H., ByteDance AI Lab et al.</p>
-        <div class="card-links"><a href="#">Abstract ↗</a><a href="#">PDF ↗</a></div>
-      </article>
-
-      <article class="card">
-        <div class="card-meta">
-          <span class="badge">NEW</span>
-          <span class="date">2026-03-22</span>
-          <span class="score-pill">interest 8/10</span>
-        </div>
-        <h3><a href="#" target="_blank">SpecDraft: Speculative Decoding Without a Draft Model</a></h3>
-        <p class="tldr">Uses the target model's own early-exit representations as draft tokens, eliminating the need to train a separate smaller model while achieving 2.8× speedup.</p>
-        <p class="authors">Kim, S., Narasimhan, K., Princeton NLP et al.</p>
-        <div class="card-links"><a href="#">Abstract ↗</a><a href="#">PDF ↗</a></div>
-      </article>
-
-      <article class="card">
-        <div class="card-meta">
-          <span class="badge">NEW</span>
-          <span class="date">2026-03-22</span>
-          <span class="score-pill">interest 8/10</span>
-        </div>
-        <h3><a href="#" target="_blank">Emergent World Models in Transformers Trained on Token Prediction</a></h3>
-        <p class="tldr">Probes show that LLMs trained purely on next-token prediction spontaneously build internal spatial and causal world representations — without any explicit supervision.</p>
-        <p class="authors">Gurnee, W., Tegmark, M., MIT CSAIL</p>
-        <div class="card-links"><a href="#">Abstract ↗</a><a href="#">PDF ↗</a></div>
-      </article>
-
-      <article class="card">
-        <div class="card-meta">
-          <span class="badge">NEW</span>
-          <span class="date">2026-03-21</span>
-          <span class="score-pill">interest 7/10</span>
-        </div>
-        <h3><a href="#" target="_blank">Long-Context Retrieval with Compressed KV Caches</a></h3>
-        <p class="tldr">Trains a lightweight token merging module that compresses KV caches 8× with less than 1% accuracy loss on 1M-token benchmarks.</p>
-        <p class="authors">Li, Y., Shrivastava, A., UT Austin et al.</p>
-        <div class="card-links"><a href="#">Abstract ↗</a><a href="#">PDF ↗</a></div>
-      </article>
-
+    <article class="card">
+      <div class="card-meta">
+        <span class="badge">NEW</span>
+        <span class="date">2026-03-23</span>
+        <span class="score-pill">▲ 107</span>
+      </div>
+      <h3><a href="https://huggingface.co/papers/2603.22212" target="_blank" rel="noopener">Omni-WorldBench: Towards a Comprehensive Interaction-Centric Evaluation for World Models</a></h3>
+      <p class="tldr"></p>
+      <p class="authors">Meiqi Wu, Zhixin Cai, Fufangchen Zhao, Xiaokun Feng, et al.</p>
+      <div class="card-links">
+        <a href="https://huggingface.co/papers/2603.22212" target="_blank">HF ↗</a>
+        <a href="https://arxiv.org/abs/2603.22212" target="_blank">Abstract ↗</a>
+        <a href="https://arxiv.org/pdf/2603.22212.pdf" target="_blank">PDF ↗</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-meta">
+        <span class="badge">NEW</span>
+        <span class="date">2026-03-17</span>
+        <span class="score-pill">▲ 100</span>
+      </div>
+      <h3><a href="https://huggingface.co/papers/2603.17024" target="_blank" rel="noopener">HopChain: Multi-Hop Data Synthesis for Generalizable Vision-Language Reasoning</a></h3>
+      <p class="tldr"></p>
+      <p class="authors">Shenzhi Wang, Shixuan Liu, Jing Zhou, Chang Gao, et al.</p>
+      <div class="card-links">
+        <a href="https://huggingface.co/papers/2603.17024" target="_blank">HF ↗</a>
+        <a href="https://arxiv.org/abs/2603.17024" target="_blank">Abstract ↗</a>
+        <a href="https://arxiv.org/pdf/2603.17024.pdf" target="_blank">PDF ↗</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-meta">
+        <span class="badge">NEW</span>
+        <span class="date">2026-03-17</span>
+        <span class="score-pill">▲ 92</span>
+      </div>
+      <h3><a href="https://huggingface.co/papers/2603.17051" target="_blank" rel="noopener">Astrolabe: Steering Forward-Process Reinforcement Learning for Distilled Autoregressive Video Models</a></h3>
+      <p class="tldr"></p>
+      <p class="authors">Songchun Zhang, Zeyue Xue, Siming Fu, Jie Huang, et al.</p>
+      <div class="card-links">
+        <a href="https://huggingface.co/papers/2603.17051" target="_blank">HF ↗</a>
+        <a href="https://arxiv.org/abs/2603.17051" target="_blank">Abstract ↗</a>
+        <a href="https://arxiv.org/pdf/2603.17051.pdf" target="_blank">PDF ↗</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-meta">
+        <span class="badge">NEW</span>
+        <span class="date">2026-03-23</span>
+        <span class="score-pill">▲ 88</span>
+      </div>
+      <h3><a href="https://huggingface.co/papers/2603.21986" target="_blank" rel="noopener">Speed by Simplicity: A Single-Stream Architecture for Fast Audio-Video Generative Foundation Model</a></h3>
+      <p class="tldr"></p>
+      <p class="authors">SII-GAIR, Sand. ai, Ethan Chern, Hansi Teng, et al.</p>
+      <div class="card-links">
+        <a href="https://huggingface.co/papers/2603.21986" target="_blank">HF ↗</a>
+        <a href="https://arxiv.org/abs/2603.21986" target="_blank">Abstract ↗</a>
+        <a href="https://arxiv.org/pdf/2603.21986.pdf" target="_blank">PDF ↗</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-meta">
+        <span class="badge">NEW</span>
+        <span class="date">2026-03-22</span>
+        <span class="score-pill">▲ 62</span>
+      </div>
+      <h3><a href="https://huggingface.co/papers/2603.21065" target="_blank" rel="noopener">LongCat-Flash-Prover: Advancing Native Formal Reasoning via Agentic Tool-Integrated Reinforcement Learning</a></h3>
+      <p class="tldr"></p>
+      <p class="authors">Jianing Wang, Jianfei Zhang, Qi Guo, Linsen Guo, et al.</p>
+      <div class="card-links">
+        <a href="https://huggingface.co/papers/2603.21065" target="_blank">HF ↗</a>
+        <a href="https://arxiv.org/abs/2603.21065" target="_blank">Abstract ↗</a>
+        <a href="https://arxiv.org/pdf/2603.21065.pdf" target="_blank">PDF ↗</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-meta">
+        <span class="badge">NEW</span>
+        <span class="date">2026-03-19</span>
+        <span class="score-pill">▲ 54</span>
+      </div>
+      <h3><a href="https://huggingface.co/papers/2603.18524" target="_blank" rel="noopener">3DreamBooth: High-Fidelity 3D Subject-Driven Video Generation Model</a></h3>
+      <p class="tldr"></p>
+      <p class="authors">Hyun-kyu Ko, Jihyeon Park, Younghyun Kim, Dongheok Park, et al.</p>
+      <div class="card-links">
+        <a href="https://huggingface.co/papers/2603.18524" target="_blank">HF ↗</a>
+        <a href="https://arxiv.org/abs/2603.18524" target="_blank">Abstract ↗</a>
+        <a href="https://arxiv.org/pdf/2603.18524.pdf" target="_blank">PDF ↗</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-meta">
+        <span class="badge">NEW</span>
+        <span class="date">2026-03-14</span>
+        <span class="score-pill">▲ 53</span>
+      </div>
+      <h3><a href="https://huggingface.co/papers/2603.16932" target="_blank" rel="noopener">Look Where It Matters: High-Resolution Crops Retrieval for Efficient VLMs</a></h3>
+      <p class="tldr"></p>
+      <p class="authors">Nimrod Shabtay, Moshe Kimhi, Artem Spector, Sivan Haray, et al.</p>
+      <div class="card-links">
+        <a href="https://huggingface.co/papers/2603.16932" target="_blank">HF ↗</a>
+        <a href="https://arxiv.org/abs/2603.16932" target="_blank">Abstract ↗</a>
+        <a href="https://arxiv.org/pdf/2603.16932.pdf" target="_blank">PDF ↗</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-meta">
+        <span class="badge">NEW</span>
+        <span class="date">2026-03-19</span>
+        <span class="score-pill">▲ 50</span>
+      </div>
+      <h3><a href="https://huggingface.co/papers/2603.18743" target="_blank" rel="noopener">Memento-Skills: Let Agents Design Agents</a></h3>
+      <p class="tldr"></p>
+      <p class="authors">Huichi Zhou, Siyuan Guo, Anjie Liu, Zhongwei Yu, et al.</p>
+      <div class="card-links">
+        <a href="https://huggingface.co/papers/2603.18743" target="_blank">HF ↗</a>
+        <a href="https://arxiv.org/abs/2603.18743" target="_blank">Abstract ↗</a>
+        <a href="https://arxiv.org/pdf/2603.18743.pdf" target="_blank">PDF ↗</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-meta">
+        <span class="badge">NEW</span>
+        <span class="date">2026-03-17</span>
+        <span class="score-pill">▲ 48</span>
+      </div>
+      <h3><a href="https://huggingface.co/papers/2603.20278" target="_blank" rel="noopener">OpenResearcher: A Fully Open Pipeline for Long-Horizon Deep Research Trajectory Synthesis</a></h3>
+      <p class="tldr"></p>
+      <p class="authors">Zhuofeng Li, Dongfu Jiang, Xueguang Ma, Haoxiang Zhang, et al.</p>
+      <div class="card-links">
+        <a href="https://huggingface.co/papers/2603.20278" target="_blank">HF ↗</a>
+        <a href="https://arxiv.org/abs/2603.20278" target="_blank">Abstract ↗</a>
+        <a href="https://arxiv.org/pdf/2603.20278.pdf" target="_blank">PDF ↗</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-meta">
+        <span class="badge">NEW</span>
+        <span class="date">2026-03-23</span>
+        <span class="score-pill">▲ 45</span>
+      </div>
+      <h3><a href="https://huggingface.co/papers/2603.22285" target="_blank" rel="noopener">VideoDetective: Clue Hunting via both Extrinsic Query and Intrinsic Relevance for Long Video Understanding</a></h3>
+      <p class="tldr"></p>
+      <p class="authors">Ruoliu Yang, Chu Wu, Caifeng Shan, Ran He, et al.</p>
+      <div class="card-links">
+        <a href="https://huggingface.co/papers/2603.22285" target="_blank">HF ↗</a>
+        <a href="https://arxiv.org/abs/2603.22285" target="_blank">Abstract ↗</a>
+        <a href="https://arxiv.org/pdf/2603.22285.pdf" target="_blank">PDF ↗</a>
+      </div>
+    </article>
     </div>
   </section>
-
   <section id="essential">
     <div class="section-header">
       <h2 class="section-title">Essential reading</h2>
@@ -229,50 +251,159 @@
     </div>
     <div class="card-grid">
 
-      <article class="card essential-card">
-        <div class="card-meta">
-          <span class="badge badge-classic">CLASSIC</span>
-          <span class="date">2017</span>
-        </div>
-        <h3><a href="https://arxiv.org/abs/1706.03762" target="_blank">Attention Is All You Need</a></h3>
-        <p class="tldr">Introduced the Transformer architecture — the foundation of every modern LLM, vision model, and multimodal system in use today.</p>
-        <p class="authors">Vaswani et al.</p>
-        <div class="card-links"><a href="https://arxiv.org/abs/1706.03762" target="_blank">Read ↗</a></div>
-      </article>
-
-      <article class="card essential-card">
-        <div class="card-meta">
-          <span class="badge badge-classic">CLASSIC</span>
-          <span class="date">2020</span>
-        </div>
-        <h3><a href="https://arxiv.org/abs/2005.14165" target="_blank">Language Models are Few-Shot Learners (GPT-3)</a></h3>
-        <p class="tldr">Demonstrated that scale alone unlocks emergent in-context learning — no fine-tuning required. Sparked the modern LLM era.</p>
-        <p class="authors">Brown et al.</p>
-        <div class="card-links"><a href="https://arxiv.org/abs/2005.14165" target="_blank">Read ↗</a></div>
-      </article>
-
-      <article class="card essential-card">
-        <div class="card-meta">
-          <span class="badge badge-classic">CLASSIC</span>
-          <span class="date">2022</span>
-        </div>
-        <h3><a href="https://arxiv.org/abs/2203.02155" target="_blank">Training language models to follow instructions with human feedback (InstructGPT)</a></h3>
-        <p class="tldr">Introduced RLHF as a practical alignment technique — the method that turned raw LLMs into useful assistants like ChatGPT.</p>
-        <p class="authors">Ouyang et al.</p>
-        <div class="card-links"><a href="https://arxiv.org/abs/2203.02155" target="_blank">Read ↗</a></div>
-      </article>
-
+    <article class="card essential-card">
+      <div class="card-meta">
+        <span class="badge badge-classic">CLASSIC</span>
+        <span class="date">2017</span>
+      </div>
+      <h3><a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener">Attention Is All You Need</a></h3>
+      <p class="tldr">Introduced the Transformer architecture — the foundation of every modern LLM, vision model, and multimodal system in use today.</p>
+      <p class="authors">Vaswani et al.</p>
+      <div class="card-links">
+        <a href="https://arxiv.org/abs/1706.03762" target="_blank">Read ↗</a>
+      </div>
+    </article>
+    <article class="card essential-card">
+      <div class="card-meta">
+        <span class="badge badge-classic">CLASSIC</span>
+        <span class="date">2018</span>
+      </div>
+      <h3><a href="https://arxiv.org/abs/1810.04805" target="_blank" rel="noopener">BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</a></h3>
+      <p class="tldr">Established masked language modelling and bidirectional pretraining, shaping how we think about transfer learning in NLP.</p>
+      <p class="authors">Devlin et al.</p>
+      <div class="card-links">
+        <a href="https://arxiv.org/abs/1810.04805" target="_blank">Read ↗</a>
+      </div>
+    </article>
+    <article class="card essential-card">
+      <div class="card-meta">
+        <span class="badge badge-classic">CLASSIC</span>
+        <span class="date">2020</span>
+      </div>
+      <h3><a href="https://arxiv.org/abs/2005.14165" target="_blank" rel="noopener">Language Models are Few-Shot Learners (GPT-3)</a></h3>
+      <p class="tldr">Demonstrated that scale alone unlocks emergent in-context learning — no fine-tuning required. Sparked the modern LLM era.</p>
+      <p class="authors">Brown et al.</p>
+      <div class="card-links">
+        <a href="https://arxiv.org/abs/2005.14165" target="_blank">Read ↗</a>
+      </div>
+    </article>
+    <article class="card essential-card">
+      <div class="card-meta">
+        <span class="badge badge-classic">CLASSIC</span>
+        <span class="date">2020</span>
+      </div>
+      <h3><a href="https://arxiv.org/abs/2010.11929" target="_blank" rel="noopener">An Image is Worth 16x16 Words: Vision Transformer (ViT)</a></h3>
+      <p class="tldr">Proved Transformers work as well on images as on text, unifying the architectures behind vision and language AI.</p>
+      <p class="authors">Dosovitskiy et al.</p>
+      <div class="card-links">
+        <a href="https://arxiv.org/abs/2010.11929" target="_blank">Read ↗</a>
+      </div>
+    </article>
+    <article class="card essential-card">
+      <div class="card-meta">
+        <span class="badge badge-classic">CLASSIC</span>
+        <span class="date">2020</span>
+      </div>
+      <h3><a href="https://arxiv.org/abs/2006.11239" target="_blank" rel="noopener">Denoising Diffusion Probabilistic Models</a></h3>
+      <p class="tldr">The paper behind Stable Diffusion, DALL·E 2, and Midjourney. Essential reading for understanding modern image and video generation.</p>
+      <p class="authors">Ho et al.</p>
+      <div class="card-links">
+        <a href="https://arxiv.org/abs/2006.11239" target="_blank">Read ↗</a>
+      </div>
+    </article>
+    <article class="card essential-card">
+      <div class="card-meta">
+        <span class="badge badge-classic">CLASSIC</span>
+        <span class="date">2021</span>
+      </div>
+      <h3><a href="https://arxiv.org/abs/2103.00020" target="_blank" rel="noopener">Learning Transferable Visual Models From Natural Language Supervision (CLIP)</a></h3>
+      <p class="tldr">Showed that training on image-text pairs at scale yields powerful zero-shot vision models. The backbone of most multimodal systems.</p>
+      <p class="authors">Radford et al.</p>
+      <div class="card-links">
+        <a href="https://arxiv.org/abs/2103.00020" target="_blank">Read ↗</a>
+      </div>
+    </article>
+    <article class="card essential-card">
+      <div class="card-meta">
+        <span class="badge badge-classic">CLASSIC</span>
+        <span class="date">2022</span>
+      </div>
+      <h3><a href="https://arxiv.org/abs/2203.02155" target="_blank" rel="noopener">Training language models to follow instructions with human feedback (InstructGPT)</a></h3>
+      <p class="tldr">Introduced RLHF as a practical alignment technique — the method that turned raw LLMs into useful assistants like ChatGPT.</p>
+      <p class="authors">Ouyang et al.</p>
+      <div class="card-links">
+        <a href="https://arxiv.org/abs/2203.02155" target="_blank">Read ↗</a>
+      </div>
+    </article>
+    <article class="card essential-card">
+      <div class="card-meta">
+        <span class="badge badge-classic">CLASSIC</span>
+        <span class="date">2015</span>
+      </div>
+      <h3><a href="https://arxiv.org/abs/1512.03385" target="_blank" rel="noopener">Deep Residual Learning for Image Recognition (ResNet)</a></h3>
+      <p class="tldr">Residual connections solved the vanishing gradient problem and enabled training of very deep networks — still fundamental today.</p>
+      <p class="authors">He et al.</p>
+      <div class="card-links">
+        <a href="https://arxiv.org/abs/1512.03385" target="_blank">Read ↗</a>
+      </div>
+    </article>
+    <article class="card essential-card">
+      <div class="card-meta">
+        <span class="badge badge-classic">CLASSIC</span>
+        <span class="date">2014</span>
+      </div>
+      <h3><a href="https://arxiv.org/abs/1412.6980" target="_blank" rel="noopener">Adam: A Method for Stochastic Optimization</a></h3>
+      <p class="tldr">The default optimizer for training nearly every neural network. Understanding Adam is non-negotiable for practitioners.</p>
+      <p class="authors">Kingma & Ba</p>
+      <div class="card-links">
+        <a href="https://arxiv.org/abs/1412.6980" target="_blank">Read ↗</a>
+      </div>
+    </article>
+    <article class="card essential-card">
+      <div class="card-meta">
+        <span class="badge badge-classic">CLASSIC</span>
+        <span class="date">2014</span>
+      </div>
+      <h3><a href="https://arxiv.org/abs/1406.2661" target="_blank" rel="noopener">Generative Adversarial Networks</a></h3>
+      <p class="tldr">Introduced GANs — one of the most influential ideas in generative AI, still widely used in image synthesis and data augmentation.</p>
+      <p class="authors">Goodfellow et al.</p>
+      <div class="card-links">
+        <a href="https://arxiv.org/abs/1406.2661" target="_blank">Read ↗</a>
+      </div>
+    </article>
+    <article class="card essential-card">
+      <div class="card-meta">
+        <span class="badge badge-classic">CLASSIC</span>
+        <span class="date">2017</span>
+      </div>
+      <h3><a href="https://arxiv.org/abs/1707.06347" target="_blank" rel="noopener">Proximal Policy Optimization Algorithms (PPO)</a></h3>
+      <p class="tldr">The dominant RL algorithm used in RLHF pipelines and robotics. Simple, stable, and effective at scale.</p>
+      <p class="authors">Schulman et al.</p>
+      <div class="card-links">
+        <a href="https://arxiv.org/abs/1707.06347" target="_blank">Read ↗</a>
+      </div>
+    </article>
+    <article class="card essential-card">
+      <div class="card-meta">
+        <span class="badge badge-classic">CLASSIC</span>
+        <span class="date">2020</span>
+      </div>
+      <h3><a href="https://arxiv.org/abs/2005.11401" target="_blank" rel="noopener">Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (RAG)</a></h3>
+      <p class="tldr">The foundational paper for RAG systems — now the standard approach for grounding LLMs with external knowledge.</p>
+      <p class="authors">Lewis et al.</p>
+      <div class="card-links">
+        <a href="https://arxiv.org/abs/2005.11401" target="_blank">Read ↗</a>
+      </div>
+    </article>
     </div>
   </section>
 </main>
-
 <footer>
-  <span>built with arXiv API + Gemini Flash</span>
+  <span>papers sourced from HuggingFace Daily Papers</span>
   <span>·</span>
-  <span>papers scored for breadth &amp; impact</span>
+  <span>ranked by community upvotes</span>
   <span>·</span>
   <span>auto-updated 06:00 UTC daily</span>
 </footer>
-
 </body>
 </html>
