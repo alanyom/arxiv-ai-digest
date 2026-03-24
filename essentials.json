@@ -1,1 +1,87 @@
 
+[
+  {
+    "title": "Attention Is All You Need",
+    "authors": "Vaswani et al.",
+    "year": "2017",
+    "link": "https://arxiv.org/abs/1706.03762",
+    "why": "Introduced the Transformer architecture — the foundation of every modern LLM, vision model, and multimodal system in use today."
+  },
+  {
+    "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+    "authors": "Devlin et al.",
+    "year": "2018",
+    "link": "https://arxiv.org/abs/1810.04805",
+    "why": "Established masked language modelling and bidirectional pretraining, shaping how we think about transfer learning in NLP."
+  },
+  {
+    "title": "Language Models are Few-Shot Learners (GPT-3)",
+    "authors": "Brown et al.",
+    "year": "2020",
+    "link": "https://arxiv.org/abs/2005.14165",
+    "why": "Demonstrated that scale alone unlocks emergent in-context learning — no fine-tuning required. Sparked the modern LLM era."
+  },
+  {
+    "title": "An Image is Worth 16x16 Words: Vision Transformer (ViT)",
+    "authors": "Dosovitskiy et al.",
+    "year": "2020",
+    "link": "https://arxiv.org/abs/2010.11929",
+    "why": "Proved Transformers work as well on images as on text, unifying the architectures behind vision and language AI."
+  },
+  {
+    "title": "Denoising Diffusion Probabilistic Models",
+    "authors": "Ho et al.",
+    "year": "2020",
+    "link": "https://arxiv.org/abs/2006.11239",
+    "why": "The paper behind Stable Diffusion, DALL·E 2, and Midjourney. Essential reading for understanding modern image and video generation."
+  },
+  {
+    "title": "Learning Transferable Visual Models From Natural Language Supervision (CLIP)",
+    "authors": "Radford et al.",
+    "year": "2021",
+    "link": "https://arxiv.org/abs/2103.00020",
+    "why": "Showed that training on image-text pairs at scale yields powerful zero-shot vision models. The backbone of most multimodal systems."
+  },
+  {
+    "title": "Training language models to follow instructions with human feedback (InstructGPT)",
+    "authors": "Ouyang et al.",
+    "year": "2022",
+    "link": "https://arxiv.org/abs/2203.02155",
+    "why": "Introduced RLHF as a practical alignment technique — the method that turned raw LLMs into useful assistants like ChatGPT."
+  },
+  {
+    "title": "Deep Residual Learning for Image Recognition (ResNet)",
+    "authors": "He et al.",
+    "year": "2015",
+    "link": "https://arxiv.org/abs/1512.03385",
+    "why": "Residual connections solved the vanishing gradient problem and enabled training of very deep networks — still fundamental today."
+  },
+  {
+    "title": "Adam: A Method for Stochastic Optimization",
+    "authors": "Kingma & Ba",
+    "year": "2014",
+    "link": "https://arxiv.org/abs/1412.6980",
+    "why": "The default optimizer for training nearly every neural network. Understanding Adam is non-negotiable for practitioners."
+  },
+  {
+    "title": "Generative Adversarial Networks",
+    "authors": "Goodfellow et al.",
+    "year": "2014",
+    "link": "https://arxiv.org/abs/1406.2661",
+    "why": "Introduced GANs — one of the most influential ideas in generative AI, still widely used in image synthesis and data augmentation."
+  },
+  {
+    "title": "Proximal Policy Optimization Algorithms (PPO)",
+    "authors": "Schulman et al.",
+    "year": "2017",
+    "link": "https://arxiv.org/abs/1707.06347",
+    "why": "The dominant RL algorithm used in RLHF pipelines and robotics. Simple, stable, and effective at scale."
+  },
+  {
+    "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (RAG)",
+    "authors": "Lewis et al.",
+    "year": "2020",
+    "link": "https://arxiv.org/abs/2005.11401",
+    "why": "The foundational paper for RAG systems — now the standard approach for grounding LLMs with external knowledge."
+  }
+]
