@@ -1,1 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>arXiv Digest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --surface: #161616;
+    --surface2: #1e1e1e;
+    --border: #2a2a2a;
+    --accent: #c8f04e;
+    --accent2: #4ef0c8;
+    --text: #e8e8e0;
+    --muted: #888;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 2rem 0 1.5rem;
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 10;
+  }
+  .header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .wordmark {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    letter-spacing: -0.5px;
+    color: var(--text);
+  }
+  .wordmark em { font-style: italic; color: var(--accent); }
+  .tagline {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    margin-left: auto;
+  }
+  main { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
+  section { margin-bottom: 4rem; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: 1.3rem; font-weight: 400; }
+  .section-count {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    background: var(--surface2);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+  }
+  .updated { margin-left: auto; font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--muted); }
+  .card-grid { display: flex; flex-direction: column; gap: 1px; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.4rem 1.6rem;
+    transition: border-color 0.15s, background 0.15s;
+    position: relative;
+  }
+  .card:hover { border-color: #3a3a3a; background: var(--surface2); }
+  .card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    border-radius: 4px 0 0 4px;
+    background: var(--accent);
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+  .card:hover::before { opacity: 1; }
+  .essential-card::before { background: var(--accent2); }
+  .card-meta { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; flex-wrap: wrap; }
+  .badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+    background: var(--accent);
+    color: #0d0d0d;
+  }
+  .badge-classic { background: var(--accent2); }
+  .date { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--muted); }
+  .score-pill { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--muted); margin-left: auto; }
+  .card h3 { font-family: 'DM Serif Display', serif; font-size: 1.05rem; font-weight: 400; line-height: 1.35; margin-bottom: 0.5rem; }
+  .card h3 a { color: var(--text); text-decoration: none; transition: color 0.1s; }
+  .card h3 a:hover { color: var(--accent); }
+  .tldr { font-size: 0.875rem; color: #b0b0a8; margin-bottom: 0.5rem; line-height: 1.5; }
+  .authors { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--muted); margin-bottom: 0.75rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .card-links { display: flex; gap: 1rem; }
+  .card-links a { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--accent); text-decoration: none; transition: opacity 0.1s; }
+  .card-links a:hover { opacity: 0.7; }
+  .essential-card .card-links a { color: var(--accent2); }
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--muted);
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 600px) {
+    .wordmark { font-size: 1.4rem; }
+    .card { padding: 1.1rem; }
+    .tagline { display: none; }
+  }
+</style>
+</head>
+<body>
 
+<header>
+  <div class="header-inner">
+    <div class="wordmark"><em>arxiv</em> digest</div>
+    <div class="tagline">AI research · curated daily</div>
+  </div>
+</header>
+
+<main>
+  <section id="recent">
+    <div class="section-header">
+      <h2 class="section-title">Today's picks</h2>
+      <span class="section-count">8 papers</span>
+      <span class="updated">updated 2026-03-24 06:00 UTC</span>
+    </div>
+    <div class="card-grid">
+
+      <article class="card">
+        <div class="card-meta">
+          <span class="badge">NEW</span>
+          <span class="date">2026-03-23</span>
+          <span class="score-pill">interest 9/10</span>
+        </div>
+        <h3><a href="#" target="_blank">Scaling Laws for Reward Model Overoptimization in RLHF</a></h3>
+        <p class="tldr">Derives empirical scaling laws showing how reward hacking grows predictably with KL divergence, giving practitioners a principled way to set RL training budgets.</p>
+        <p class="authors">Park, J., Chen, L., Anthropic Research et al.</p>
+        <div class="card-links"><a href="#">Abstract ↗</a><a href="#">PDF ↗</a></div>
+      </article>
+
+      <article class="card">
+        <div class="card-meta">
+          <span class="badge">NEW</span>
+          <span class="date">2026-03-23</span>
+          <span class="score-pill">interest 8/10</span>
+        </div>
+        <h3><a href="#" target="_blank">MegaScale-Infer: Serving Mixture-of-Experts at 10k GPU Scale</a></h3>
+        <p class="tldr">Introduces disaggregated prefill/decode scheduling and expert-affinity routing that cuts MoE inference cost by 40% at production scale.</p>
+        <p class="authors">Zhang, W., Liu, H., ByteDance AI Lab et al.</p>
+        <div class="card-links"><a href="#">Abstract ↗</a><a href="#">PDF ↗</a></div>
+      </article>
+
+      <article class="card">
+        <div class="card-meta">
+          <span class="badge">NEW</span>
+          <span class="date">2026-03-22</span>
+          <span class="score-pill">interest 8/10</span>
+        </div>
+        <h3><a href="#" target="_blank">SpecDraft: Speculative Decoding Without a Draft Model</a></h3>
+        <p class="tldr">Uses the target model's own early-exit representations as draft tokens, eliminating the need to train a separate smaller model while achieving 2.8× speedup.</p>
+        <p class="authors">Kim, S., Narasimhan, K., Princeton NLP et al.</p>
+        <div class="card-links"><a href="#">Abstract ↗</a><a href="#">PDF ↗</a></div>
+      </article>
+
+      <article class="card">
+        <div class="card-meta">
+          <span class="badge">NEW</span>
+          <span class="date">2026-03-22</span>
+          <span class="score-pill">interest 8/10</span>
+        </div>
+        <h3><a href="#" target="_blank">Emergent World Models in Transformers Trained on Token Prediction</a></h3>
+        <p class="tldr">Probes show that LLMs trained purely on next-token prediction spontaneously build internal spatial and causal world representations — without any explicit supervision.</p>
+        <p class="authors">Gurnee, W., Tegmark, M., MIT CSAIL</p>
+        <div class="card-links"><a href="#">Abstract ↗</a><a href="#">PDF ↗</a></div>
+      </article>
+
+      <article class="card">
+        <div class="card-meta">
+          <span class="badge">NEW</span>
+          <span class="date">2026-03-21</span>
+          <span class="score-pill">interest 7/10</span>
+        </div>
+        <h3><a href="#" target="_blank">Long-Context Retrieval with Compressed KV Caches</a></h3>
+        <p class="tldr">Trains a lightweight token merging module that compresses KV caches 8× with less than 1% accuracy loss on 1M-token benchmarks.</p>
+        <p class="authors">Li, Y., Shrivastava, A., UT Austin et al.</p>
+        <div class="card-links"><a href="#">Abstract ↗</a><a href="#">PDF ↗</a></div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="essential">
+    <div class="section-header">
+      <h2 class="section-title">Essential reading</h2>
+      <span class="section-count">12 papers</span>
+    </div>
+    <div class="card-grid">
+
+      <article class="card essential-card">
+        <div class="card-meta">
+          <span class="badge badge-classic">CLASSIC</span>
+          <span class="date">2017</span>
+        </div>
+        <h3><a href="https://arxiv.org/abs/1706.03762" target="_blank">Attention Is All You Need</a></h3>
+        <p class="tldr">Introduced the Transformer architecture — the foundation of every modern LLM, vision model, and multimodal system in use today.</p>
+        <p class="authors">Vaswani et al.</p>
+        <div class="card-links"><a href="https://arxiv.org/abs/1706.03762" target="_blank">Read ↗</a></div>
+      </article>
+
+      <article class="card essential-card">
+        <div class="card-meta">
+          <span class="badge badge-classic">CLASSIC</span>
+          <span class="date">2020</span>
+        </div>
+        <h3><a href="https://arxiv.org/abs/2005.14165" target="_blank">Language Models are Few-Shot Learners (GPT-3)</a></h3>
+        <p class="tldr">Demonstrated that scale alone unlocks emergent in-context learning — no fine-tuning required. Sparked the modern LLM era.</p>
+        <p class="authors">Brown et al.</p>
+        <div class="card-links"><a href="https://arxiv.org/abs/2005.14165" target="_blank">Read ↗</a></div>
+      </article>
+
+      <article class="card essential-card">
+        <div class="card-meta">
+          <span class="badge badge-classic">CLASSIC</span>
+          <span class="date">2022</span>
+        </div>
+        <h3><a href="https://arxiv.org/abs/2203.02155" target="_blank">Training language models to follow instructions with human feedback (InstructGPT)</a></h3>
+        <p class="tldr">Introduced RLHF as a practical alignment technique — the method that turned raw LLMs into useful assistants like ChatGPT.</p>
+        <p class="authors">Ouyang et al.</p>
+        <div class="card-links"><a href="https://arxiv.org/abs/2203.02155" target="_blank">Read ↗</a></div>
+      </article>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>built with arXiv API + Gemini Flash</span>
+  <span>·</span>
+  <span>papers scored for breadth &amp; impact</span>
+  <span>·</span>
+  <span>auto-updated 06:00 UTC daily</span>
+</footer>
+
+</body>
+</html>
