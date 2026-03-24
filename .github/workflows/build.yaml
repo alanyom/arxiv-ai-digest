@@ -1,1 +1,40 @@
+name: Build & Deploy
 
+on:
+  schedule:
+    # 06:00 UTC daily — catches arXiv's nightly batch (posted ~20:00 UTC prev. night)
+    - cron: "0 6 * * *"
+  workflow_dispatch: # allow manual trigger from GitHub UI
+
+permissions:
+  contents: write  # needed to commit generated index.html back to repo
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build site
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python build.py
+
+      - name: Commit & push generated HTML
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/index.html
+          # Only commit if something actually changed
+          git diff --staged --quiet || git commit -m "chore: rebuild site $(date -u +%Y-%m-%d)"
+          git push
